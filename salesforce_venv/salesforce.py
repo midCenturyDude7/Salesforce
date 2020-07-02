@@ -4,14 +4,10 @@ Attempting to connect to Salesforce account with Python and simple_salesforce li
 """
 
 # Import Libraries
-from simple_salesforce import Salesforce
+from simple_salesforce import Salesforce, SFType, SalesforceLogin
+from pandas import DataFrame, read_csv
+import json
+from pprint import pprint as pp
 
-sf = Salesforce(
-    username='mgriffes@resilient-wolf-8defoo.com',
-    password='HenryEmerson3807!',
-    security_token='pImtqwRyuTvfskPnQC6XcxSVa'
-)
-
-sf_data = sf.query_all("SELECT Owner.Name, store_id__c, account_number__c, username__c, password__c, program_status__c, FROM Account WHERE program_status__c IN ('Live','Test')")
-
-sf_df = pd.DataFrame(sf_data['records']).drop(columns='attributes')
+sf = Salesforce(instance_url='https://resilient-wolf-8defoo-dev-ed.lightning.force.com', session_id='')
+print(sf)
