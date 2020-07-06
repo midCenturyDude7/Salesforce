@@ -10,4 +10,15 @@ import json
 from pprint import pprint as pp
 
 sf = Salesforce(instance_url='https://resilient-wolf-8defoo-dev-ed.lightning.force.com', session_id='')
-print(sf)
+
+
+pp(sf)
+
+login = json.load(open('login.json'))
+username = login['username']
+password = login['password']
+token = login['token']
+
+session_id, instance = SalesforceLogin(username=username, password=password, security_token=token)
+
+print(session_id, instance)
