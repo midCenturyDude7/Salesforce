@@ -24,7 +24,7 @@ customerList.add(cus);
 // Create 10 new records
 for(Integer i=1;i<=10;i++)
 {
-    apex_customer__c objCust=new apex_customer__c(name='Test' + i, apex_external_id__c='A03' + + '.' + i)
+    apex_customer__c objCust=new apex_customer__c(name='Test' + i, apex_external_id__c='A03' + + '.' + i);
     customerList.add(objCust);
 }
 
